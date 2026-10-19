@@ -1,0 +1,95 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Import Traffic KG",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/import_to_neo4j.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/.vscode/python.env",
+            "args": [
+                "--user",
+                "neo4j",
+                "--password",
+                "${input:neo4jPassword}",
+                "--xlsx",
+                "${workspaceFolder}\\generated\\交通问答系统的数据_清洗溯源版.xlsx",
+                "--http-uri",
+                "http://localhost:7474"
+            ]
+        },
+        {
+            "name": "QA Demo Interactive",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/qa_demo.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/.vscode/python.env",
+            "args": [
+                "--user",
+                "neo4j",
+                "--password",
+                "${input:neo4jPassword}",
+                "--http-uri",
+                "http://localhost:7474"
+            ]
+        },
+        {
+            "name": "QA Demo Single Question",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/qa_demo.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/.vscode/python.env",
+            "args": [
+                "--user",
+                "neo4j",
+                "--password",
+                "${input:neo4jPassword}",
+                "--http-uri",
+                "http://localhost:7474",
+                "--question",
+                "${input:qaQuestion}"
+            ]
+        },
+        {
+            "name": "QA Web App",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/qa_web_app.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/.vscode/python.env",
+            "args": [
+                "--user",
+                "neo4j",
+                "--password",
+                "${input:neo4jPassword}",
+                "--http-uri",
+                "http://localhost:7474",
+                "--host",
+                "127.0.0.1",
+                "--port",
+                "8000"
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "neo4jPassword",
+            "type": "promptString",
+            "description": "Enter your Neo4j password",
+            "password": true
+        },
+        {
+            "id": "qaQuestion",
+            "type": "promptString",
+            "description": "Enter one traffic QA question",
+            "default": "闯红灯扣几分"
+        }
+    ]
+}

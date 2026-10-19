@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.log
+
+# 个人文档与原始报告，不上传
+docs/
+data_sources/

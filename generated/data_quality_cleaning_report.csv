@@ -1,0 +1,5 @@
+﻿sheet,before_rows,after_rows,removed_duplicates,blank_source_url_before,blank_source_url_after,blank_source_name_after
+law_article,373,373,0,0,0,0
+violation_penalty,893,893,0,0,0,0
+road_sign,855,855,0,0,0,0
+accident_case,720,720,0,30,0,0
